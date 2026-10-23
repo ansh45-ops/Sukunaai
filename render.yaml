@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: sukuna-ai-model
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: NVIDIA_API_KEY
+        sync: false
+      - key: LOVABLE_IMAGE_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: COHERE_API_KEY
+        sync: false
+      - key: LLM7_API_KEY
+        sync: false
