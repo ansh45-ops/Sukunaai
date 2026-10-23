@@ -806,4 +806,8 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    import os
+
+    port = int(os.environ.get("PORT", "10000"))
+    print(f"Starting web server on 0.0.0.0:{port}", flush=True)
+    app.run(host="0.0.0.0", port=port)
