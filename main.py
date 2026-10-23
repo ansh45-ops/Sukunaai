@@ -25,33 +25,32 @@ import telebot
 from telebot import types
 from flask import Flask, jsonify
 
-# Keep all your other existing imports here.
 
 
-# ==============================
-# 2. FLASK APP
-# ==============================
 app = Flask(__name__)
 
+# Use your existing bot initialization here:
+# bot = telebot.TeleBot(os.environ["TELEGRAM_TOKEN"])
 
-# ==============================
-# 3. WEB ROUTES
-# ==============================
 @app.route("/")
 def home():
     return "Sukuna AI Model is running!"
 
-
 @app.route("/health")
 def health():
     return jsonify({"status": "ok"})
-# g4f is an optional, unofficial provider. The bot still starts if it is absent.
-try:
-    from g4f.client import Client as G4FClient
-    G4F_AVAILABLE = True
-except Exception:
-    G4FClient = None
-    G4F_AVAILABLE = False
+
+def run_bot():
+    bot.infinity_polling(
+        skip_pending=True,
+        timeout=30,
+        long_polling_timeout=25
+    )
+
+if __name__ == "__main__":
+    threading.Thread(target=run_bot, daemon=True).start()
+    port = int(os.environ.get("PORT", "10000"))
+    app.run(host="0.0.0.0", port=port)
 
 # ===== HARD-CODED CONFIGURATION (use rotated/new credentials) =====
 TELEGRAM_TOKEN = "8976517914:AAE96wDr0F7fHjGkQWeJ9buenKTa66hoH7U"
