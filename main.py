@@ -53,9 +53,8 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port)
 
 # ===== HARD-CODED CONFIGURATION (use rotated/new credentials) =====
-TELEGRAM_TOKEN = "8976517914:AAE96wDr0F7fHjGkQWeJ9buenKTa66hoH7U"
+TELEGRAM_TOKEN = "8976517914:AAH5EV_yTzbDBYfwg5KOZhrwuVDGBk4iTm8"
 OWNER_ID = 6399589745  # Replace with your numeric Telegram user ID
-
 # API keys pasted into chat are treated as exposed; paste freshly rotated keys here.
 COHERE_API_KEY = "cTVNRGmjmHLGNvZVpWVFSX6exwfwF2A9dFPZCKhg"
 OPENROUTER_API_KEY = "d4e5926be9fbb9b781c0d86157f7b501b4dfbbe72e0cb2c27a0959eeb9db3ac0"
