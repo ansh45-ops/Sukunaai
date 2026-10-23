@@ -23,7 +23,28 @@ from datetime import datetime, timezone
 import requests
 import telebot
 from telebot import types
+from flask import Flask, jsonify
 
+# Keep all your other existing imports here.
+
+
+# ==============================
+# 2. FLASK APP
+# ==============================
+app = Flask(__name__)
+
+
+# ==============================
+# 3. WEB ROUTES
+# ==============================
+@app.route("/")
+def home():
+    return "Sukuna AI Model is running!"
+
+
+@app.route("/health")
+def health():
+    return jsonify({"status": "ok"})
 # g4f is an optional, unofficial provider. The bot still starts if it is absent.
 try:
     from g4f.client import Client as G4FClient
